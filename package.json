@@ -10,8 +10,9 @@
     "stylelint:fix": "stylelint \"src/**/*.{css,scss}\" --fix",
     "lint": "eslint --fix \"./src/**/*.{js,jsx,ts,tsx,json}\"",
     "format": "prettier --write \"./src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\" --ignore-path ./.prettierignore",
+    "prepare": "husky install",
     "check": "npm run stylelint:fix && npm run lint && npm run format",
-    "prepare": "husky install"
+    "commit": "npm run check && cz"
   },
   "keywords": [],
   "author": "",
@@ -20,6 +21,11 @@
     "*.{css,scss}": "npm run stylelint:fix",
     "*.{js,jsx,ts,tsx}": "npm run lint",
     "*.{js,jsx,ts,tsx,json,css,scss,md}": "npm run format"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   },
   "devDependencies": {
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.15",
@@ -31,9 +37,11 @@
     "@typescript-eslint/parser": "^8.26.0",
     "autoprefixer": "^10.4.20",
     "clean-webpack-plugin": "^4.0.0",
+    "commitizen": "^4.3.1",
     "cross-env": "^7.0.3",
     "css-loader": "^7.1.2",
     "cssnano": "^7.0.6",
+    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^9.21.0",
     "eslint-config-prettier": "^10.0.2",
     "eslint-plugin-eslint-comments": "^3.2.0",
